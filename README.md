@@ -1,2 +1,2 @@
 # Trending Q100 Reference Datasets from 3 Olink Panels
-The pipeline is designed to comprehensively identify trends in reference data across versions for each panel, providing insights for assay validation, assay development, and interpretation of laboratory results.
+The pipeline is designed to comprehensively identify trends in reference data across versions for each panel, providing insights for assay validation, assay development, and interpretation of laboratory results. Multiple statistical analyses were conducted using this pipeline, including heatmaps, volcano plots, time-series analyses, trajectory analyses, and dynamic range assessments to understand version-to-version variability

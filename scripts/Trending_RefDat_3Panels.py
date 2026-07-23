@@ -331,7 +331,13 @@ def plot_boxplot(df_panel, value_col, title, outpath, show_points=False):
     plt.figure(figsize=(max(10, 0.6 * len(versions)), 5))
     positions = np.arange(1, len(versions) + 1)
 
-    plt.boxplot(data, positions=positions, labels=[version_str(v) for v in versions], showfliers=False)
+    plt.boxplot(
+    data,
+    positions=positions,
+    tick_labels=[version_str(v) for v in versions],
+    showfliers=False,
+)
+    
 
     if show_points:
         rng = np.random.default_rng(42)

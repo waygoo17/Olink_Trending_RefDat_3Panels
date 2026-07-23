@@ -14,11 +14,33 @@ except Exception:
     SCIPY_AVAILABLE = False
 
 # ============================================================
-# Default paths (relative to this script's directory)
+# Default paths
 # ============================================================
 _HERE = Path(__file__).parent
-_DEFAULT_INPUT  = _HERE.parent / "datasheet" / "3Panels_Ref_MasterSheet_17Jul2026.csv"
-_DEFAULT_OUTPUT = _HERE.parent / "output" / "Trending_3panels"
+
+CSV_NAME = "3Panels_Ref_MasterSheet_17Jul2026.csv"
+
+# Search locations
+SEARCH_LOCATIONS = [
+    _HERE,
+    _HERE / "datasheet",
+    _HERE.parent,
+    _HERE.parent / "datasheet",
+]
+
+_DEFAULT_INPUT = None
+
+for folder in SEARCH_LOCATIONS:
+    candidate = folder / CSV_NAME
+    if candidate.exists():
+        _DEFAULT_INPUT = candidate
+        break
+
+if _DEFAULT_INPUT is None:
+    _DEFAULT_INPUT = SEARCH_LOCATIONS[0] / CSV_NAME
+
+_DEFAULT_OUTPUT = _HERE / "Trending_3panels_Output"
+
 
 # Tolerance settings for adjacent-version plots
 ADJ_LOG2_ZERO_TOL = 1e-4   # values smaller than this in abs(log2 change) become 0
